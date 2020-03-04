@@ -1,7 +1,7 @@
 'use strict'
 
 var usersName = prompt('Hey there! What is your name?')
-ShowMessage('Hello ' + usersName);
+document.getElementById("greetingMessage").innerHTML = 'Hello there, ' + usersName;
 
 var name = prompt('Is my name Olga?');
 quizz(name, yes);
