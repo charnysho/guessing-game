@@ -20,7 +20,7 @@ var no = 'no';
 var n = 'n';
 
 function quizz(answer, correctAnswer) {
-  if(name.toLowerCase() == yes || name.toLowerCase() == y) {
+  if(answer.toLowerCase() == yes || answer.toLowerCase() == y) {
     console.log('Correct answer!');
     alert('Correct answer!');
   } else {
