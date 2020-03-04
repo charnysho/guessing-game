@@ -1,7 +1,7 @@
 'use strict'
 
 var usersName = prompt('Hey there! What is your name?')
-document.getElementById("greetingMessage").innerHTML = 'Hello there, ' + usersName;
+alert('Hello there, ' + usersName + '!')
 
 var name = prompt('Is my name Olga?');
 quizz(name, yes);
@@ -29,4 +29,4 @@ function quizz(answer, correctAnswer) {
   }
 }
 
-print('See you later ' + usersName);
+document.getElementById("seeYouLater").innerHTML = 'See you later, ' + usersName;
