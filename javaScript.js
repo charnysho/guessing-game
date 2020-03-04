@@ -29,4 +29,4 @@ function quizz(answer, correctAnswer1, correctAnswer2) {
   }
 }
 
-document.getElementById("seeYouLater").innerHTML = 'See you later, ' + usersName;
+document.getElementById("seeYouLater").innerHTML = ('See you later, ' + usersName + '!').toUpperCase();
