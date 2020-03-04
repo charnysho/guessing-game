@@ -21,10 +21,10 @@ var n = 'n';
 
 function quizz(answer, correctAnswer1, correctAnswer2) {
   if(answer.toLowerCase() == correctAnswer1 || answer.toLowerCase() == correctAnswer2) {
-    console.log('Correct answer!');
+    console.log('Your answer is ' + answer + '. Correct!');
     alert('Correct answer!');
   } else {
-    console.log('Wrong answer!');
+    console.log('Your answer is ' + answer + '. Wrong!');
     alert('Wrong answer!')
   }
 }
