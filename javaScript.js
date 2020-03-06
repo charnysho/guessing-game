@@ -1,49 +1,59 @@
 'use strict'
 
 
-var incorrectAnswerList = ['no', 'n'];
-var correctAnswerList = ['yes', 'y'];
-var correctNumber = getRandomInt(10);
-var favoriteFood = ['pasta', 'pizza', 'poke', 'sushi', 'seafood', 'meat', 'noodles', 'sandwich', 'soup', 'salad', 'snack'];
-var yesQuestions = ['Is my name Olga?', 'Did I work as QA?', 'Did I take CCNA Routing and Switching class?'];
-var noQuestions = ['Do I have degree from Washington university?', 'Do I want to be a painter?'];
+var foodList = ['pasta', 'pizza', 'poke', 'sushi', 'seafood', 'meat', 'noodles', 'sandwich', 'soup', 'salad', 'snack'];
+var favFoodList = ['pasta', 'sushi'];
 var totalCorrectAnswers = 0;
+var q1 = ['Is my name Olga?', 'y', 'yes'];
+var q2 = ['Did I work as QA?', 'y', 'yes'];
+var q3 = ['Did I take CCNA Routing and Switching class?', 'y', 'yes'];
+var q4 = ['Do I have degree from Washington university?', 'n', 'no'];
+var q5 = ['Do I want to be a painter?', 'n', 'no'];
+var questions = [q1, q2, q3, q4, q5];
+var guessingNumberGameAttempts = 4;
+var favFoodGameAttempts = 6;
+var maxRandomNumber = 10;
 
 
-var usersName = prompt('Hey there! What is your name?');
-alert('Hello there, ' + usersName + '!')
-
-askQuestion(yesQuestions, correctAnswerList);
-askQuestion(noQuestions, incorrectAnswerList);
-guessingNumberGame();
-favFoodGame();
-alert('Total correct answers: ' + totalCorrectAnswers);
+helloMessage();
+yesNoQuestions(questions);
+guessingNumberGame(getRandomInt(maxRandomNumber), guessingNumberGameAttempts);
+askMultipleQuestions(foodList, favFoodList, favFoodGameAttempts);
+showTotalScore();
 goodByeMessage(usersName);
 
-function askQuestion(questionType, correctAnswer) {
-  for (var i = 0; i < questionType.length; i++) {
-    var answer = prompt(questionType[i]);
-    quiz(answer, correctAnswer);
+
+function yesNoQuestions(questions) {
+  for (var i = 0; i < questions.length; i++) {
+    askQuestion(questions[i]);
   }
 }
 
-function quiz(answer, correctAnswerList) {
-  if(answer.toLowerCase() == correctAnswerList[0] || answer.toLowerCase() == correctAnswerList[1]) {
-    console.log('Your answer is ' + answer + '. Correct!');
-    alert('Correct answer!');
-    totalCorrectAnswers = totalCorrectAnswers + 1
-    console.log(totalCorrectAnswers);
+function askQuestion(question) {
+  var answer = prompt(question[0]);
+  if(answer.toLowerCase() == question[1] || answer.toLowerCase() == question[2]) {
+      console.log('Your answer is ' + answer + '. Correct!');
+      alert('Correct answer!');
+      totalCorrectAnswers = totalCorrectAnswers + 1
+      console.log(totalCorrectAnswers);
   } else {
     console.log('Your answer is ' + answer + '. Wrong!');
     alert('Wrong answer!')
-  }
+    }
 }
 
-function favFoodGame() {
-  var possibleAnswers = ['pasta', 'sushi'];
-  var attemptNumber = 6;
+function showTotalScore() {
+  alert('Total correct answers: ' + totalCorrectAnswers);
+}
+
+function helloMessage() {
+  var usersName = prompt('Hey there! What is your name?');
+  alert('Hello there, ' + usersName + '!')
+}
+
+function askMultipleQuestions(wholeList, possibleAnswers, attemptNumber) {
   for(var i = 0; i < attemptNumber; i++) {
-    var answer6 = prompt('Please guess a food: ' + favoriteFood + ' You have ' + attemptNumber + ' attempts');
+    var answer6 = prompt('Please guess a food: ' + wholeList + ' You have ' + attemptNumber + ' attempts');
     if(answer6 === possibleAnswers[0] || answer6 === possibleAnswers[1]) {
       alert('You are right!');
       totalCorrectAnswers = Number(totalCorrectAnswers) + 1
@@ -53,18 +63,17 @@ function favFoodGame() {
   alert('All possible correct answers: ' + possibleAnswers[0] + ', ' + possibleAnswers[1]);
 }
 
-function guessingNumberGame() {
-  var attemptNumber = 4;
+function guessingNumberGame(correctNumber, attemptNumber) {
   for(var i = 0; i < attemptNumber; i++) {
     var answer6 = prompt('Please guess the number.');
-    if(checkRightNumber(answer6)) {
+    if(checkRightNumber(correctNumber, answer6)) {
       break;
     } 
   }
   alert('Correct number is ' + correctNumber);
 }
 
-function checkRightNumber(guessingNumber) {
+function checkRightNumber(correctNumber, guessingNumber) {
   var num = parseInt(guessingNumber);
   if(!isNaN(num)) {
     if(num > correctNumber) {
