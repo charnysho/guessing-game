@@ -13,6 +13,7 @@ var questions = [q1, q2, q3, q4, q5];
 var guessingNumberGameAttempts = 4;
 var favFoodGameAttempts = 6;
 var maxRandomNumber = 10;
+var userName = '';
 
 
 helloMessage();
@@ -20,7 +21,7 @@ yesNoQuestions(questions);
 guessingNumberGame(getRandomInt(maxRandomNumber), guessingNumberGameAttempts);
 askMultipleQuestions(foodList, favFoodList, favFoodGameAttempts);
 showTotalScore();
-goodByeMessage(usersName);
+goodByeMessage(userName);
 
 
 function yesNoQuestions(questions) {
@@ -32,12 +33,9 @@ function yesNoQuestions(questions) {
 function askQuestion(question) {
   var answer = prompt(question[0]);
   if(answer.toLowerCase() == question[1] || answer.toLowerCase() == question[2]) {
-      console.log('Your answer is ' + answer + '. Correct!');
       alert('Correct answer!');
       totalCorrectAnswers = totalCorrectAnswers + 1
-      console.log(totalCorrectAnswers);
   } else {
-    console.log('Your answer is ' + answer + '. Wrong!');
     alert('Wrong answer!')
     }
 }
@@ -47,8 +45,8 @@ function showTotalScore() {
 }
 
 function helloMessage() {
-  var usersName = prompt('Hey there! What is your name?');
-  alert('Hello there, ' + usersName + '!')
+  userName = prompt('Hey there! What is your name?');
+  alert('Hello there, ' + userName + '!')
 }
 
 function askMultipleQuestions(wholeList, possibleAnswers, attemptNumber) {
@@ -56,7 +54,7 @@ function askMultipleQuestions(wholeList, possibleAnswers, attemptNumber) {
     var answer6 = prompt('Please guess a food: ' + wholeList + ' You have ' + attemptNumber + ' attempts');
     if(answer6 === possibleAnswers[0] || answer6 === possibleAnswers[1]) {
       alert('You are right!');
-      totalCorrectAnswers = Number(totalCorrectAnswers) + 1
+      totalCorrectAnswers = totalCorrectAnswers + 1
       break;
     } 
   }
@@ -82,7 +80,7 @@ function checkRightNumber(correctNumber, guessingNumber) {
       alert('Number is too low!');
     } else if(num === correctNumber) {
       alert('You are right!');
-      totalCorrectAnswers = Number(totalCorrectAnswers) + 1
+      totalCorrectAnswers = totalCorrectAnswers + 1
       return true;
     } 
   } else {
@@ -90,8 +88,8 @@ function checkRightNumber(correctNumber, guessingNumber) {
   }
 }
 
-function goodByeMessage(usersName) {
-  document.getElementById("seeYouLater").innerHTML = ('See you later, ' + usersName + '!').toUpperCase();
+function goodByeMessage(userName) {
+  document.getElementById("seeYouLater").innerHTML = ('See you later, ' + userName + '!').toUpperCase();
 }
 
 function getRandomInt(max) {

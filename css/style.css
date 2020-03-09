@@ -1,0 +1,57 @@
+body {
+  background-color: #ffeadb;
+  color: #216353;
+}
+
+h4,ol {
+  text-align: center;
+}
+
+ul,ol {
+  list-style-position: inside;
+}
+
+ol {
+  background-color: #ffbaba;
+  padding: 20px;
+}
+
+h4 {
+  font-family: verdana;
+}
+
+header { 
+  padding: 60px;
+  text-align: center;
+  color: #feb236;
+  font-size: 30px;
+  background-color: #f7c5a8;
+  border-style: ridge;
+  border-width: 5px;
+  border-color: #ffbaba;
+}
+
+h1 {
+  text-align: center;
+  color: #216353;
+}
+
+h2 {
+  text-align: center;
+}
+
+footer { 
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f7c5a8;
+  color: #216353;
+  text-align: center;
+}
+
+#seeYouLater {
+  text-align: center;
+  padding: 60px;
+  font-size: 30px;
+}
